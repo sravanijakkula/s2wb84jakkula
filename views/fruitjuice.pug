@@ -1,0 +1,33 @@
+extends layout
+block content
+  h1= title
+  p Welcome to the icemagic 
+  div(class="container-fluid")
+        div(class="row")
+            -
+                let fruitjuice = [
+                    {
+                        "Itemname": "Banana",
+                        "Quantity": 27,
+                        "price": "Ten USD"
+                    },
+                    {
+                        "Itemname": "Pineapple",
+                        "Quantity": 23,
+                        "price": "Twenty Two USD"
+                    },
+                    {
+                        "Itemname": "Apple",
+                        "Quantity": 18,
+                        "price": "Two USD"
+                    },                   
+                ]
+            each v,index in fruitjuice
+                div(class="col-sm-2" onclick=`buy(${index})`) #{v.Itemname}
+                div(class="col-sm-2" onclick=`buy(${index})`) #{v.Quantity}
+                div(class="col-sm-2" onclick=`buy(${index})`) #{v.price}
+  script.                
+        function buy(intemNo)
+        {
+              alert(`you purchased Item ${intemNo+1}`)
+        }
